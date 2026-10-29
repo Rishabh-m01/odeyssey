@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block title %}My Trips — ODEYSSEY{% endblock %}
+
+{% block content %}
+<div class="my-trips-page container">
+  <!-- Page Header -->
+  <div class="page-header-row">
+    <div>
+      <span class="hero-badge">Browser Storage</span>
+      <h1 class="page-title">Saved Trips</h1>
+      <p class="page-subtitle">
+        Access trips you've planned on this device. Saved itineraries are preserved in your browser's local storage.
+      </p>
+    </div>
+    <div class="header-action-group">
+      <a href="{{ url_for('planner') }}" class="btn btn-primary">+ Plan a New Trip</a>
+      <button type="button" class="btn btn-secondary btn-sm" id="clearAllTripsBtn" style="display:none;">
+        Clear All Trips
+      </button>
+    </div>
+  </div>
+
+  <!-- Local Storage Disclaimer Banner -->
+  <div class="notice-banner">
+    <div class="notice-icon">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="12" y1="16" x2="12" y2="12"></line>
+        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+      </svg>
+    </div>
+    <div class="notice-content">
+      <strong>Single-Device Browser Storage:</strong> Trips shown below are saved exclusively inside your current web browser. 
+      They are not synchronized with a cloud server or external accounts. You can export any trip as a JSON file to transfer or archive it.
+    </div>
+  </div>
+
+  <!-- Empty State Container -->
+  <div class="empty-trips-card" id="emptyTripsState" style="display:none;">
+    <div class="empty-icon-wrap">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#87947A" stroke-width="1.75">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+        <polyline points="14 2 14 8 20 8"></polyline>
+        <line x1="12" y1="18" x2="12" y2="12"></line>
+        <line x1="9" y1="15" x2="15" y2="15"></line>
+      </svg>
+    </div>
+    <h3 class="empty-title">No saved itineraries yet</h3>
+    <p class="empty-text">
+      When you generate an itinerary in the planner, click <strong>"Save to My Trips"</strong> to bookmark it for later review.
+    </p>
+    <a href="{{ url_for('planner') }}" class="btn btn-primary">Open Trip Planner &rarr;</a>
+  </div>
+
+  <!-- Saved Trips Grid -->
+  <div class="saved-trips-grid" id="savedTripsGrid">
+    <!-- Populated by JavaScript from localStorage -->
+  </div>
+</div>
+
+<!-- Modal / Drawer for Viewing Saved Trip Details -->
+<div class="modal-backdrop" id="tripModalBackdrop" style="display:none;">
+  <div class="modal-card">
+    <div class="modal-header">
+      <h3 class="modal-title" id="modalTripTitle">Saved Trip</h3>
+      <button type="button" class="modal-close-btn" id="closeTripModalBtn">&times;</button>
+    </div>
+    <div class="modal-body" id="modalTripContent">
+      <!-- Injected by JavaScript -->
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline btn-sm" id="modalExportBtn">Export JSON</button>
+      <button type="button" class="btn btn-outline btn-sm" id="modalPrintBtn">Print Plan</button>
+      <button type="button" class="btn btn-primary btn-sm" id="modalLoadInPlannerBtn">Load into Planner</button>
+    </div>
+  </div>
+</div>
+{% endblock %}

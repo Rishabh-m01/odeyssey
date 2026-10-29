@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}ODEYSSEY — Minimalist Smart Trip Planner{% endblock %}</title>
+  <meta name="description" content="A minimalist, practical smart trip planner for curated itineraries and transparent budget estimates.">
+  
+  <!-- Inter Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Leaflet CSS for maps (optional open-source maps) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <!-- Header / Navigation -->
+  <header class="site-header">
+    <div class="header-inner container">
+      <a href="{{ url_for('index') }}" class="brand-link">
+        <span class="brand-name">ODEYSSEY</span>
+        <span class="brand-tagline">Less planning. More exploring.</span>
+      </a>
+
+      <button class="mobile-menu-btn" aria-label="Toggle navigation menu" id="mobileMenuBtn">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <nav class="site-nav" id="siteNav">
+        <a href="{{ url_for('index') }}" class="nav-item {% if request.path == '/' %}active{% endif %}">Explore</a>
+        <a href="{{ url_for('planner') }}" class="nav-item {% if request.path == '/planner' %}active{% endif %}">Plan a Trip</a>
+        <a href="{{ url_for('my_trips') }}" class="nav-item {% if request.path == '/my-trips' %}active{% endif %}">
+          My Trips <span class="nav-badge" id="savedCountBadge" style="display:none;">0</span>
+        </a>
+        <a href="{{ url_for('about') }}" class="nav-item {% if request.path == '/about' %}active{% endif %}">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content Area -->
+  <main class="site-main">
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-col brand-col">
+        <div class="footer-brand">ODEYSSEY</div>
+        <p class="footer-text">
+          A minimalist smart trip planner designed for college project demonstration.
+          Prioritizes clear pacing, mathematical budget transparency, and restrained aesthetics.
+        </p>
+        <div class="footer-tagline">“Less planning. More exploring.”</div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="{{ url_for('index') }}">Explore Destinations</a></li>
+          <li><a href="{{ url_for('planner') }}">Trip Planner</a></li>
+          <li><a href="{{ url_for('my_trips') }}">Saved Trips (Browser Storage)</a></li>
+          <li><a href="{{ url_for('about') }}">About & Viva Notes</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Architecture & Credits</h4>
+        <ul class="footer-links">
+          <li><span>Backend:</span> Python 3 + Flask 3</li>
+          <li><span>Weather:</span> <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo API</a> (Free, CC BY 4.0)</li>
+          <li><span>Maps:</span> <a href="https://www.openstreetmap.org/" target="_blank" rel="noopener">OpenStreetMap</a> + Leaflet</li>
+          <li><span>Storage:</span> HTML5 localStorage (Client-Side)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p class="copyright">
+        ODEYSSEY Mini-Project &bull; Educational Demonstration &bull; All estimated costs are realistic Indian averages (INR) and not live booking rates.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Leaflet JS for Maps -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <!-- Main Application Script -->
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,177 @@
+{% extends "base.html" %}
+
+{% block title %}ODEYSSEY — Minimalist Smart Trip Planner{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="container hero-container">
+    <div class="hero-content">
+      <span class="hero-badge">Smart Trip Planning &bull; Indian Destinations</span>
+      <h1 class="hero-title">Your next trip, figured out.</h1>
+      <p class="hero-description">
+        A minimalist planner that balances your destination, duration, budget, and travel interests 
+        into a realistic day-by-day itinerary with transparent expense breakdowns. No clutter.
+      </p>
+
+      <div class="hero-actions">
+        <a href="{{ url_for('planner') }}" class="btn btn-primary">Plan a trip</a>
+        <a href="#destinations" class="btn btn-secondary">Explore destinations</a>
+      </div>
+    </div>
+
+    <!-- Quick Planning Card -->
+    <div class="hero-quick-card">
+      <div class="quick-card-header">
+        <h3 class="quick-card-title">Quick Itinerary Jump</h3>
+        <p class="quick-card-subtitle">Choose a destination or enter your own to get started.</p>
+      </div>
+
+      <form action="{{ url_for('planner') }}" method="GET" class="quick-form">
+        <div class="form-group">
+          <label for="quickDest" class="form-label">Destination</label>
+          <div class="input-with-icon">
+            <svg class="field-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <input type="text" id="quickDest" name="destination" list="destinationsList" placeholder="e.g. Jaipur, Goa, Munnar" required class="form-input">
+            <datalist id="destinationsList">
+              {% for d in destinations %}
+              <option value="{{ d.name }}">{{ d.state }}</option>
+              {% endfor %}
+            </datalist>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group form-col">
+            <label for="quickDays" class="form-label">Days</label>
+            <select id="quickDays" name="days" class="form-select">
+              <option value="2">2 Days</option>
+              <option value="3" selected>3 Days</option>
+              <option value="4">4 Days</option>
+              <option value="5">5 Days</option>
+              <option value="7">7 Days</option>
+            </select>
+          </div>
+
+          <div class="form-group form-col">
+            <label for="quickStyle" class="form-label">Style</label>
+            <select id="quickStyle" name="travel_style" class="form-select">
+              <option value="budget">Budget (Hostels / Transit)</option>
+              <option value="balanced" selected>Balanced (Standard Hotels)</option>
+              <option value="comfort">Comfort (Resorts / Cabs)</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">
+          Open Planner with these Settings &rarr;
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Value Pillars / Philosophy -->
+<section class="pillars-section">
+  <div class="container">
+    <div class="section-header text-center">
+      <h2 class="section-title">Designed for real trips, not social media feeds</h2>
+      <p class="section-subtitle">Practical constraints over generic lists.</p>
+    </div>
+
+    <div class="pillars-grid">
+      <div class="pillar-card">
+        <div class="pillar-index">01</div>
+        <h3 class="pillar-title">Paced Schedules</h3>
+        <p class="pillar-text">
+          Max three meaningful activities per day grouped into Morning, Afternoon, and Evening slots. No impossible 10-stop whirlwind tours.
+        </p>
+      </div>
+
+      <div class="pillar-card">
+        <div class="pillar-index">02</div>
+        <h3 class="pillar-title">Transparent INR Budget</h3>
+        <p class="pillar-text">
+          Calculates accommodation, food, local transit, entry fees, and contingencies from authentic baseline rules rather than arbitrary numbers.
+        </p>
+      </div>
+
+      <div class="pillar-card">
+        <div class="pillar-index">03</div>
+        <h3 class="pillar-title">Live Weather & Maps</h3>
+        <p class="pillar-text">
+          Direct Open-Meteo forecasts and OpenStreetMap coordinates. Clear fallback states if the network is interrupted.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Curated Destinations Section -->
+<section id="destinations" class="destinations-section">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <span class="section-tag">Sample Knowledge Base</span>
+        <h2 class="section-title">Curated Destinations</h2>
+        <p class="section-subtitle">
+          Tested itineraries with verified locations, opening hour pacing, and realistic regional expenses.
+        </p>
+      </div>
+      <a href="{{ url_for('planner') }}" class="view-all-link">Or plan any custom city &rarr;</a>
+    </div>
+
+    <div class="destinations-grid">
+      {% for d in destinations %}
+      <article class="destination-card">
+        <div class="card-header">
+          <div class="card-location">
+            <span class="card-state">{{ d.state }}</span>
+            <h3 class="card-city">{{ d.name }}</h3>
+          </div>
+          <span class="ideal-days-pill">{{ d.ideal_days_min }}–{{ d.ideal_days_max }} Days</span>
+        </div>
+
+        <p class="card-tagline">{{ d.tagline }}</p>
+        <p class="card-overview">{{ d.overview }}</p>
+
+        <div class="card-meta">
+          <div class="meta-item">
+            <span class="meta-label">Best Season</span>
+            <span class="meta-val">{{ d.best_seasons[0] }}</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Est. Daily (Balanced)</span>
+            <span class="meta-val">₹{{ "{:,}".format(d.typical_daily_costs.balanced.accommodation + d.typical_daily_costs.balanced.food + d.typical_daily_costs.balanced.local_transport) }}/day</span>
+          </div>
+        </div>
+
+        <div class="card-footer">
+          <a href="{{ url_for('planner') }}?destination={{ d.name }}" class="btn btn-outline btn-sm btn-block">
+            Plan a {{ d.name }} Trip &rarr;
+          </a>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Practical Planner CTA -->
+<section class="cta-section">
+  <div class="container cta-box">
+    <div class="cta-content">
+      <h2 class="cta-title">Ready to build your itinerary?</h2>
+      <p class="cta-text">
+        Pick your duration, set your budget in rupees, select what you like doing, and ODEYSSEY handles the structure.
+      </p>
+    </div>
+    <div class="cta-action">
+      <a href="{{ url_for('planner') }}" class="btn btn-primary btn-lg">Start Planning Now</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

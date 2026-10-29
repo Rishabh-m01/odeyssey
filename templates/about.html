@@ -1,0 +1,218 @@
+{% extends "base.html" %}
+
+{% block title %}About & Architecture — ODEYSSEY{% endblock %}
+
+{% block content %}
+<div class="about-page container">
+  <!-- Page Header -->
+  <div class="about-header">
+    <span class="hero-badge">Academic Project Documentation &bull; Viva Notes</span>
+    <h1 class="page-title">About ODEYSSEY</h1>
+    <p class="page-subtitle">
+      A minimalist, full-stack travel planner built with Python (Flask) and vanilla web technologies.
+      Designed with clear logic, genuine mathematical transparency, and a restrained editorial aesthetic.
+    </p>
+  </div>
+
+  <div class="about-grid">
+    <!-- Main Explanation Column -->
+    <div class="about-main">
+      <!-- Section 1: Project Purpose -->
+      <section class="about-section">
+        <h2 class="section-title">1. Project Purpose & Vision</h2>
+        <p>
+          Most travel tools suffer from excessive cognitive load: noisy sponsored banners, overwhelming 50-stop 
+          whirlwind itineraries, unverified price claims, and confusing AI buzzwords. 
+        </p>
+        <p>
+          <strong>ODEYSSEY</strong> was conceived as a college mini-project to demonstrate how a 
+          <strong>minimalist, rule-based expert system</strong> can solve real travel planning friction. 
+          It respects human pacing (morning, afternoon, and evening slots), provides explicit mathematical 
+          cost estimation in Indian Rupees (INR), and pulls live weather data from Open-Meteo.
+        </p>
+        <blockquote class="manifesto-quote">
+          “Less planning. More exploring.” — Focus on feasible pacing rather than an unrealistic checklist of tourist traps.
+        </blockquote>
+      </section>
+
+      <!-- Section 2: Architecture & Request Flow -->
+      <section class="about-section">
+        <h2 class="section-title">2. Architecture & Data Flow</h2>
+        <p>
+          ODEYSSEY follows a modular 3-tier architecture with clear separation of presentation, business logic, 
+          and external integrations:
+        </p>
+
+        <div class="architecture-diagram">
+          <div class="diagram-step">
+            <div class="step-num">Frontend</div>
+            <div class="step-name">Vanilla Web Client</div>
+            <div class="step-detail">HTML5, CSS3, ES6 JS<br>Leaflet Map + localStorage</div>
+          </div>
+          <div class="diagram-arrow">&rarr; HTTP JSON &rarr;</div>
+          <div class="diagram-step">
+            <div class="step-num">Backend</div>
+            <div class="step-name">Flask Application (app.py)</div>
+            <div class="step-detail">Routing, Input Sanitization<br>REST API Endpoints</div>
+          </div>
+          <div class="diagram-arrow">&rarr; Internal Call &rarr;</div>
+          <div class="diagram-step">
+            <div class="step-num">Logic</div>
+            <div class="step-name">Planner Engine (planner.py)</div>
+            <div class="step-detail">Interest Scoring, Slot Pacing<br>Budget Breakdown</div>
+          </div>
+          <div class="diagram-arrow">&rarr; External API &rarr;</div>
+          <div class="diagram-step">
+            <div class="step-num">External</div>
+            <div class="step-name">Open-Meteo Weather</div>
+            <div class="step-detail">Live Daily Forecast<br>In-Memory Caching & Fallback</div>
+          </div>
+        </div>
+
+        <h3 class="subsection-title">Request-Response Lifecycle:</h3>
+        <ol class="ordered-list">
+          <li><strong>User Input:</strong> User defines destination, dates, travelers, INR budget, and interest tags.</li>
+          <li><strong>Client Validation:</strong> Immediate UI checks ensure required fields and positive values before submission.</li>
+          <li><strong>API Dispatch:</strong> <code>POST /api/plan</code> sends sanitized JSON to the Flask backend.</li>
+          <li><strong>Rule-Based Execution:</strong> <code>services.planner</code> evaluates candidates, ranks by interest relevance, distributes across days, and computes itemized expenses.</li>
+          <li><strong>Weather Enrichment:</strong> <code>services.weather</code> contacts Open-Meteo using real coordinates with a 30-minute in-memory cache and offline fallback.</li>
+          <li><strong>Interactive Presentation:</strong> The client renders day-by-day activity cards, updates the budget comparison, and plots geo-markers on the Leaflet map.</li>
+        </ol>
+      </section>
+
+      <!-- Section 3: The Planning & Budgeting Algorithm -->
+      <section class="about-section">
+        <h2 class="section-title">3. The Planning & Budget Algorithm</h2>
+        <p>
+          Unlike black-box generative models that invent fictitious locations and fake prices, ODEYSSEY uses a 
+          <strong>transparent deterministic algorithm</strong>:
+        </p>
+        <ul class="bullet-list">
+          <li>
+            <strong>Interest Relevance Scoring:</strong> Each candidate activity has tags (<code>nature</code>, <code>history</code>, <code>food</code>, etc.). Activities are scored by the intersection size with the user's selected interests:
+            <br>
+            <code>score = (len(activity.tags ∩ user.interests) × 10) + bonus</code>
+          </li>
+          <li>
+            <strong>Day & Slot Allocation:</strong> Activities are segregated into <em>Morning</em> (9:00 AM–12:30 PM), <em>Afternoon</em> (2:00 PM–5:00 PM), and <em>Evening</em> (6:00 PM–8:30 PM). Maximum 3 primary activities per day to prevent exhaustion.
+          </li>
+          <li>
+            <strong>Mathematical Budgeting:</strong>
+            <br>&bull; Accommodation = <code>ceil(travelers / 2) × daily_hotel_rate × nights</code>
+            <br>&bull; Food = <code>travelers × daily_food_allowance × days</code>
+            <br>&bull; Local Transit = <code>ceil(travelers / 3) × local_transit_rate × days</code>
+            <br>&bull; Activity Admission = <code>travelers × ∑(scheduled_activity_entry_fees)</code>
+            <br>&bull; Contingency Buffer = <code>5% of subtotal</code>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Section 4: Academic Viva Questions & Answers -->
+      <section class="about-section">
+        <h2 class="section-title">4. College Viva & Presentation FAQ</h2>
+        <div class="faq-list">
+          <details class="faq-item" open>
+            <summary class="faq-q">Q1: Why did you choose Flask and Vanilla JS instead of a heavy React/Node framework?</summary>
+            <div class="faq-a">
+              <p>
+                For a focused mini-project, vanilla JavaScript and Python Flask offer zero build-step overhead, 
+                exceptional execution speed, minimal bundle weight, and clear architectural transparency. 
+                Any college examiner can inspect the code without dealing with complex node_modules or transpilers.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-q">Q2: How does ODEYSSEY handle offline scenarios or API failures?</summary>
+            <div class="faq-a">
+              <p>
+                Resiliency is built into every layer. If the Open-Meteo external weather API is blocked, offline, or times out, 
+                the application intercepts the exception, notes the offline status, and safely presents the full trip plan 
+                with seasonal averages. The trip generator never crashes due to an external network glitch.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-q">Q3: How are user trips stored without a relational database?</summary>
+            <div class="faq-a">
+              <p>
+                Version 1 uses browser <code>localStorage</code> (Key-Value store) for instantaneous, zero-latency persistence 
+                on the user's device. The data model is structured in standard JSON, making it trivial to attach a SQLite or PostgreSQL 
+                database and authentication (like Flask-Login or JWT) in future iterations.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-q">Q4: Are the prices real booking prices?</summary>
+            <div class="faq-a">
+              <p>
+                No. ODEYSSEY explicitly discloses that prices are <strong>realistic statistical averages</strong> 
+                based on current tourism standards in India. It avoids misleading users by pretending to have 
+                live hotel reservation integration when none exists.
+              </p>
+            </div>
+          </details>
+        </div>
+      </section>
+    </div>
+
+    <!-- Sidebar Info Column -->
+    <aside class="about-sidebar">
+      <div class="sidebar-box">
+        <h3 class="box-title">Tech Stack</h3>
+        <dl class="tech-dl">
+          <dt>Backend</dt>
+          <dd>Python 3.14 + Flask 3.1</dd>
+
+          <dt>HTTP Client</dt>
+          <dd>Requests (with 4s timeout & caching)</dd>
+
+          <dt>Frontend</dt>
+          <dd>HTML5 + Semantic CSS3 + ES6 JS</dd>
+
+          <dt>Maps</dt>
+          <dd>Leaflet.js + OpenStreetMap</dd>
+
+          <dt>Weather API</dt>
+          <dd>Open-Meteo (No API key required)</dd>
+
+          <dt>Testing</dt>
+          <dd>Pytest suite for planner & API</dd>
+
+          <dt>Storage</dt>
+          <dd>HTML5 localStorage</dd>
+        </dl>
+      </div>
+
+      <div class="sidebar-box">
+        <h3 class="box-title">Project Boundaries</h3>
+        <ul class="bullet-list-sm">
+          <li>Curated catalog covers 7 major Indian destinations in depth.</li>
+          <li>Custom destinations generate interest-aligned template frameworks.</li>
+          <li>Single-device storage; cloud sync planned for future versions.</li>
+        </ul>
+      </div>
+
+      <div class="sidebar-box">
+        <h3 class="box-title">Design Palette</h3>
+        <div class="palette-swatches">
+          <div class="swatch" style="background:#F6F5F0; border:1px solid #ddd;">
+            <span>#F6F5F0<br>Off-White</span>
+          </div>
+          <div class="swatch" style="background:#242620; color:#fff;">
+            <span>#242620<br>Charcoal</span>
+          </div>
+          <div class="swatch" style="background:#87947A; color:#fff;">
+            <span>#87947A<br>Sage Green</span>
+          </div>
+          <div class="swatch" style="background:#EFECE4; border:1px solid #ddd;">
+            <span>#EFECE4<br>Warm Beige</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</div>
+{% endblock %}

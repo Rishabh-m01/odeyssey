@@ -1,0 +1,935 @@
+[
+  {
+    "id": "jaipur",
+    "name": "Jaipur",
+    "state": "Rajasthan",
+    "tagline": "The historic Pink City of royal palaces and lively bazaars.",
+    "overview": "Jaipur blends historic Rajput architecture, bustling street markets, and distinctive Rajasthani cuisine. It is ideal for heritage walks, craft shopping, and palace explorations.",
+    "best_seasons": ["October to March"],
+    "ideal_days_min": 2,
+    "ideal_days_max": 5,
+    "coordinates": {
+      "lat": 26.9124,
+      "lon": 75.7873
+    },
+    "typical_daily_costs": {
+      "budget": {
+        "accommodation": 900,
+        "food": 550,
+        "local_transport": 250,
+        "misc": 150
+      },
+      "balanced": {
+        "accommodation": 2400,
+        "food": 1100,
+        "local_transport": 650,
+        "misc": 350
+      },
+      "comfort": {
+        "accommodation": 5800,
+        "food": 2300,
+        "local_transport": 1400,
+        "misc": 750
+      }
+    },
+    "transport_baseline": {
+      "public_train": 900,
+      "cab_rental": 2400,
+      "flight_local": 4500
+    },
+    "activities": [
+      {
+        "id": "jpr-amber-fort",
+        "name": "Amber Fort & Palace",
+        "time_slot": "morning",
+        "duration_hours": 3.0,
+        "cost_inr": 100,
+        "interests": ["history", "culture", "nature"],
+        "short_desc": "Majestic hilltop fort built from yellow and pink sandstone with panoramic lake views.",
+        "tips": "Arrive before 9:30 AM to beat the mid-day heat and large tour buses.",
+        "coordinates": { "lat": 26.9855, "lon": 75.8513 }
+      },
+      {
+        "id": "jpr-panna-meena",
+        "name": "Panna Meena ka Kund",
+        "time_slot": "morning",
+        "duration_hours": 1.0,
+        "cost_inr": 0,
+        "interests": ["history", "culture", "relaxation"],
+        "short_desc": "An intricately structured 16th-century stepwell near Amber with geometric stair patterns.",
+        "tips": "Great for calm photography; respect local signage regarding stairs.",
+        "coordinates": { "lat": 26.9882, "lon": 75.8562 }
+      },
+      {
+        "id": "jpr-city-palace",
+        "name": "City Palace & Museum",
+        "time_slot": "afternoon",
+        "duration_hours": 2.5,
+        "cost_inr": 300,
+        "interests": ["history", "culture"],
+        "short_desc": "Sprawling royal complex showcasing courtyards, textiles, royal armory, and Peacock Gate.",
+        "tips": "Composite ticket includes Jaigarh Fort within a 2-day validity period.",
+        "coordinates": { "lat": 26.9258, "lon": 75.8237 }
+      },
+      {
+        "id": "jpr-jantar-mantar",
+        "name": "Jantar Mantar Observatory",
+        "time_slot": "afternoon",
+        "duration_hours": 1.5,
+        "cost_inr": 50,
+        "interests": ["history", "culture"],
+        "short_desc": "UNESCO World Heritage site featuring nineteen astronomical instruments built by Maharaja Sawai Jai Singh II.",
+        "tips": "Hire an audio guide to truly appreciate the geometric timekeeping science.",
+        "coordinates": { "lat": 26.9248, "lon": 75.8246 }
+      },
+      {
+        "id": "jpr-hawa-mahal",
+        "name": "Hawa Mahal & Wind View Cafe",
+        "time_slot": "afternoon",
+        "duration_hours": 1.5,
+        "cost_inr": 50,
+        "interests": ["history", "culture", "food"],
+        "short_desc": "The iconic Palace of Winds with 953 honeycomb windows designed for royal women to view city life.",
+        "tips": "Rooftop cafes directly across the road offer the best view and cold coffee.",
+        "coordinates": { "lat": 26.9239, "lon": 75.8267 }
+      },
+      {
+        "id": "jpr-bazaars",
+        "name": "Bapu & Johari Bazaars Walking Tour",
+        "time_slot": "evening",
+        "duration_hours": 2.5,
+        "cost_inr": 0,
+        "interests": ["shopping", "food", "culture"],
+        "short_desc": "Vibrant street markets known for blue pottery, block-printed fabrics, and traditional mojaris.",
+        "tips": "Polite bargaining is customary; sample kachoris at Laxmi Mishthan Bhandar (LMB).",
+        "coordinates": { "lat": 26.9196, "lon": 75.8242 }
+      },
+      {
+        "id": "jpr-nahargarh",
+        "name": "Nahargarh Fort Sunset Point",
+        "time_slot": "evening",
+        "duration_hours": 2.0,
+        "cost_inr": 50,
+        "interests": ["nature", "relaxation", "history"],
+        "short_desc": "Perched on the Aravalli hills, offering an uninterrupted panorama of the illuminated city below.",
+        "tips": "Pre-arrange your return auto-rickshaw or taxi as evening transit down the hill is sparse.",
+        "coordinates": { "lat": 26.9388, "lon": 75.8155 }
+      },
+      {
+        "id": "jpr-galta-ji",
+        "name": "Galtaji Temple (Monkey Temple)",
+        "time_slot": "morning",
+        "duration_hours": 2.0,
+        "cost_inr": 0,
+        "interests": ["culture", "nature", "history"],
+        "short_desc": "Ancient pilgrimage site set between granite cliffs with sacred natural springs and shrines.",
+        "tips": "Keep food and shiny items tucked away securely inside your bag.",
+        "coordinates": { "lat": 26.9161, "lon": 75.8587 }
+      },
+      {
+        "id": "jpr-patrika-gate",
+        "name": "Patrika Gate & Jawahar Circle",
+        "time_slot": "morning",
+        "duration_hours": 1.5,
+        "cost_inr": 0,
+        "interests": ["culture", "relaxation"],
+        "short_desc": "Stunning hand-painted archway showcasing Rajasthan's architectural legacy and vibrant motifs.",
+        "tips": "Early mornings have soft golden sunlight and no crowds.",
+        "coordinates": { "lat": 26.8291, "lon": 75.8058 }
+      },
+      {
+        "id": "jpr-chokhi-dhani",
+        "name": "Chokhi Dhani Ethnic Cultural Village",
+        "time_slot": "evening",
+        "duration_hours": 3.5,
+        "cost_inr": 900,
+        "interests": ["culture", "food", "relaxation"],
+        "short_desc": "Immersive Rajasthani village experience with folk dances, camel rides, and traditional thali.",
+        "tips": "Opens in the evening around 5:30 PM; come hungry for the grand dinner.",
+        "coordinates": { "lat": 26.7671, "lon": 75.8344 }
+      }
+    ]
+  },
+  {
+    "id": "goa",
+    "name": "Goa",
+    "state": "Goa",
+    "tagline": "Sun-drenched beaches, Portuguese heritage, and relaxed coastal culture.",
+    "overview": "From serene South Goan bays to historic churches and energetic North Goa seaside shacks, Goa offers a balanced mix of leisure, watersports, and colonial architecture.",
+    "best_seasons": ["November to February"],
+    "ideal_days_min": 3,
+    "ideal_days_max": 7,
+    "coordinates": {
+      "lat": 15.2993,
+      "lon": 74.1240
+    },
+    "typical_daily_costs": {
+      "budget": {
+        "accommodation": 1000,
+        "food": 650,
+        "local_transport": 350,
+        "misc": 200
+      },
+      "balanced": {
+        "accommodation": 2800,
+        "food": 1300,
+        "local_transport": 750,
+        "misc": 400
+      },
+      "comfort": {
+        "accommodation": 6500,
+        "food": 2600,
+        "local_transport": 1600,
+        "misc": 850
+      }
+    },
+    "transport_baseline": {
+      "public_train": 1200,
+      "cab_rental": 3000,
+      "flight_local": 5000
+    },
+    "activities": [
+      {
+        "id": "goa-fontainhas",
+        "name": "Fontainhas Latin Quarter Walk",
+        "time_slot": "morning",
+        "duration_hours": 2.0,
+        "cost_inr": 0,
+        "interests": ["history", "culture", "relaxation"],
+        "short_desc": "Wander through pastel-painted Portuguese villas, cobblestone alleys, and cozy bakeries.",
+        "tips": "Try warm Bebinca and cashew cookies at Confeitaria 31 de Janeiro.",
+        "coordinates": { "lat": 15.4989, "lon": 73.8315 }
+      },
+      {
+        "id": "goa-old-goa",
+        "name": "Basilica of Bom Jesus & Se Cathedral",
+        "time_slot": "morning",
+        "duration_hours": 2.5,
+        "cost_inr": 0,
+        "interests": ["history", "culture"],
+        "short_desc": "16th-century UNESCO World Heritage churches representing the height of Manueline and Baroque architecture.",
+        "tips": "Dress modestly (shoulders and knees covered) for religious sanctum entry.",
+        "coordinates": { "lat": 15.5009, "lon": 73.9116 }
+      },
+      {
+        "id": "goa-aguada",
+        "name": "Fort Aguada & Lighthouse",
+        "time_slot": "afternoon",
+        "duration_hours": 2.0,
+        "cost_inr": 50,
+        "interests": ["history", "nature"],
+        "short_desc": "Well-preserved 17th-century coastal fortress overlooking the Arabian Sea with freshwater springs.",
+        "tips": "The upper fort offers broad panoramic views; visit late afternoon for milder heat.",
+        "coordinates": { "lat": 15.4925, "lon": 73.7736 }
+      },
+      {
+        "id": "goa-spice-plantation",
+        "name": "Sahakari Spice Farm Tour & Lunch",
+        "time_slot": "afternoon",
+        "duration_hours": 3.0,
+        "cost_inr": 500,
+        "interests": ["nature", "food", "culture"],
+        "short_desc": "Guided walk through organic vanilla, pepper, and nutmeg plantations followed by Goan buffet.",
+        "tips": "Includes a welcoming herbal tea and authentic Saraswat/Goan fish or veg lunch.",
+        "coordinates": { "lat": 15.4045, "lon": 74.0205 }
+      },
+      {
+        "id": "goa-anjuna-market",
+        "name": "Anjuna Flea Market / Sunset Promenade",
+        "time_slot": "evening",
+        "duration_hours": 2.5,
+        "cost_inr": 0,
+        "interests": ["shopping", "relaxation", "food"],
+        "short_desc": "Eclectic market stalls offering handicrafts, live acoustic tunes, and beachside sunset seating.",
+        "tips": "Wednesdays host the full flea market; other days enjoy the relaxed beach shacks.",
+        "coordinates": { "lat": 15.5807, "lon": 73.7423 }
+      },
+      {
+        "id": "goa-palolem-kayak",
+        "name": "Palolem Beach & Sea Kayaking",
+        "time_slot": "morning",
+        "duration_hours": 3.0,
+        "cost_inr": 400,
+        "interests": ["adventure", "nature", "relaxation"],
+        "short_desc": "Crescent-shaped gentle bay in South Goa ideal for beginner sea kayaking and dolphin spotting.",
+        "tips": "Early morning sea is calmest; life jackets are mandatory and included.",
+        "coordinates": { "lat": 15.0099, "lon": 74.0232 }
+      },
+      {
+        "id": "goa-chapora-sunset",
+        "name": "Chapora Fort & Vagator Sunset",
+        "time_slot": "evening",
+        "duration_hours": 2.0,
+        "cost_inr": 0,
+        "interests": ["nature", "relaxation", "history"],
+        "short_desc": "Famous red laterite fort ramparts with dramatic views over the Chapora River mouth and ocean.",
+        "tips": "Wear shoes with good grip for the rocky walk up the slope.",
+        "coordinates": { "lat": 15.6059, "lon": 73.7364 }
+      },
+      {
+        "id": "goa-dudhsagar",
+        "name": "Dudhsagar Waterfalls Jeep Excursion",
+        "time_slot": "morning",
+        "duration_hours": 5.0,
+        "cost_inr": 700,
+        "interests": ["adventure", "nature"],
+        "short_desc": "Four-tiered massive cascade amidst Bhagwan Mahaveer Wildlife Sanctuary with forested off-road trail.",
+        "tips": "Forest department permits and life jackets are arranged at the Kulem jeep counter.",
+        "coordinates": { "lat": 15.3144, "lon": 74.3143 }
+      }
+    ]
+  },
+  {
+    "id": "munnar",
+    "name": "Munnar",
+    "state": "Kerala",
+    "tagline": "Misty rolling hills, emerald tea gardens, and fresh mountain air.",
+    "overview": "Set at 1,600 meters in the Western Ghats, Munnar is known for sprawling tea estates, cool climate, trekking trails, and wildlife reserves.",
+    "best_seasons": ["September to March"],
+    "ideal_days_min": 2,
+    "ideal_days_max": 4,
+    "coordinates": {
+      "lat": 10.0889,
+      "lon": 77.0595
+    },
+    "typical_daily_costs": {
+      "budget": {
+        "accommodation": 850,
+        "food": 450,
+        "local_transport": 300,
+        "misc": 150
+      },
+      "balanced": {
+        "accommodation": 2200,
+        "food": 950,
+        "local_transport": 700,
+        "misc": 300
+      },
+      "comfort": {
+        "accommodation": 5200,
+        "food": 2000,
+        "local_transport": 1400,
+        "misc": 600
+      }
+    },
+    "transport_baseline": {
+      "public_train": 700,
+      "cab_rental": 2200,
+      "flight_local": 4200
+    },
+    "activities": [
+      {
+        "id": "mnr-tea-museum",
+        "name": "KDHP Tea Museum & Factory Tour",
+        "time_slot": "morning",
+        "duration_hours": 2.0,
+        "cost_inr": 150,
+        "interests": ["history", "culture", "food"],
+        "short_desc": "Learn about the century-old orthodox tea-making process with live demonstration and tea tasting.",
+        "tips": "Try fresh cardamom tea and purchase unadulterated estate grade tea.",
+        "coordinates": { "lat": 10.0931, "lon": 77.0543 }
+      },
+      {
+        "id": "mnr-eravikulam",
+        "name": "Eravikulam National Park (Rajamalai)",
+        "time_slot": "morning",
+        "duration_hours": 3.0,
+        "cost_inr": 200,
+        "interests": ["nature", "adventure"],
+        "short_desc": "Home to the endangered Nilgiri Tahr and rolling shola grass hills leading towards Anamudi Peak.",
+        "tips": "Book entry tickets online in advance; eco-friendly safari buses take you up the hill.",
+        "coordinates": { "lat": 10.1500, "lon": 77.0667 }
+      },
+      {
+        "id": "mnr-mattupetty",
+        "name": "Mattupetty Dam & Echo Point",
+        "time_slot": "afternoon",
+        "duration_hours": 2.5,
+        "cost_inr": 50,
+        "interests": ["nature", "relaxation"],
+        "short_desc": "Scenic reservoir framed by pine groves; speed boating and natural acoustic echo phenomenon.",
+        "tips": "Local vendors sell freshly sliced spiced pineapples and steamed corn.",
+        "coordinates": { "lat": 10.1064, "lon": 77.1245 }
+      },
+      {
+        "id": "mnr-top-station",
+        "name": "Top Station Viewpoint",
+        "time_slot": "afternoon",
+        "duration_hours": 3.0,
+        "cost_inr": 30,
+        "interests": ["nature", "adventure", "relaxation"],
+        "short_desc": "The highest altitude point on Munnar-Kodaikanal road offering 360-degree views over Tamil Nadu plains.",
+        "tips": "Carry a light windbreaker jacket; clouds frequently roll across the ridge.",
+        "coordinates": { "lat": 10.1256, "lon": 77.2439 }
+      },
+      {
+        "id": "mnr-kalaripayattu",
+        "name": "Punarjani Traditional Martial Arts & Kathakali Show",
+        "time_slot": "evening",
+        "duration_hours": 2.0,
+        "cost_inr": 350,
+        "interests": ["culture", "history"],
+        "short_desc": "Mesmerizing display of Kerala's ancient martial art (Kalaripayattu) and classical Kathakali dance.",
+        "tips": "Arrive 20 minutes early to watch the intricate facial makeup process.",
+        "coordinates": { "lat": 10.0520, "lon": 77.0180 }
+      },
+      {
+        "id": "mnr-lockhart-gap",
+        "name": "Lockhart Gap Trek & Spice Garden",
+        "time_slot": "morning",
+        "duration_hours": 2.5,
+        "cost_inr": 100,
+        "interests": ["nature", "adventure", "relaxation"],
+        "short_desc": "Gentle hillside trail passing through fragrant cardamom plantations and panoramic cliff viewpoints.",
+        "tips": "Wear sturdy walking shoes with good tread for damp morning terrain.",
+        "coordinates": { "lat": 10.0381, "lon": 77.1082 }
+      },
+      {
+        "id": "mnr-market-walk",
+        "name": "Munnar Town Spice & Homemade Chocolate Market",
+        "time_slot": "evening",
+        "duration_hours": 1.5,
+        "cost_inr": 0,
+        "interests": ["shopping", "food"],
+        "short_desc": "Bustling town center with shops selling genuine cloves, cinnamon, vanilla pods, and dark chocolates.",
+        "tips": "Look for cooperative government spice outlets for verified grading.",
+        "coordinates": { "lat": 10.0754, "lon": 77.0617 }
+      }
+    ]
+  },
+  {
+    "id": "manali",
+    "name": "Manali",
+    "state": "Himachal Pradesh",
+    "tagline": "Snow-capped peaks, cedar forests, and Himalayan river adventure.",
+    "overview": "Nestled in the Beas River valley, Manali is a gateway for high-altitude trekking, paragliding, pine-scented mountain walks, and mountain cafe culture.",
+    "best_seasons": ["March to June", "October to February"],
+    "ideal_days_min": 3,
+    "ideal_days_max": 6,
+    "coordinates": {
+      "lat": 32.2432,
+      "lon": 77.1892
+    },
+    "typical_daily_costs": {
+      "budget": {
+        "accommodation": 800,
+        "food": 500,
+        "local_transport": 250,
+        "misc": 150
+      },
+      "balanced": {
+        "accommodation": 2200,
+        "food": 1000,
+        "local_transport": 650,
+        "misc": 350
+      },
+      "comfort": {
+        "accommodation": 5400,
+        "food": 2200,
+        "local_transport": 1500,
+        "misc": 700
+      }
+    },
+    "transport_baseline": {
+      "public_train": 1100,
+      "cab_rental": 2800,
+      "flight_local": 4800
+    },
+    "activities": [
+      {
+        "id": "mnl-hadimba",
+        "name": "Hadimba Devi Temple & Cedar Forest",
+        "time_slot": "morning",
+        "duration_hours": 1.5,
+        "cost_inr": 0,
+        "interests": ["history", "culture", "nature"],
+        "short_desc": "Unique 1553 CE pagoda-style wooden temple sheltered inside towering Dhungri deodar forests.",
+        "tips": "Visit early to experience the morning mist among the hundred-year-old cedars.",
+        "coordinates": { "lat": 32.2483, "lon": 77.1802 }
+      },
+      {
+        "id": "mnl-solang-valley",
+        "name": "Solang Valley Adventures",
+        "time_slot": "morning",
+        "duration_hours": 4.0,
+        "cost_inr": 600,
+        "interests": ["adventure", "nature"],
+        "short_desc": "High meadow famous for ropeway cable car rides, paragliding, and winter snow activities.",
+        "tips": "Cable car offers safe and breathtaking aerial valley views without requiring extreme sports.",
+        "coordinates": { "lat": 32.3160, "lon": 77.1575 }
+      },
+      {
+        "id": "mnl-old-manali",
+        "name": "Old Manali Village & Artisanal Cafes",
+        "time_slot": "afternoon",
+        "duration_hours": 2.5,
+        "cost_inr": 0,
+        "interests": ["food", "relaxation", "culture"],
+        "short_desc": "Quaint village lined with traditional wood-and-stone Himachali houses, apple orchards, and bakeries.",
+        "tips": "Try wood-fired pizza and fresh Himalayan trout at riverside eateries.",
+        "coordinates": { "lat": 32.2562, "lon": 77.1751 }
+      },
+      {
+        "id": "mnl-vashisht",
+        "name": "Vashisht Natural Hot Springs & Jogini Waterfall Hike",
+        "time_slot": "morning",
+        "duration_hours": 3.5,
+        "cost_inr": 0,
+        "interests": ["nature", "adventure", "relaxation"],
+        "short_desc": "Natural sulfur hot water baths followed by a scenic 3 km pine trail hike to Jogini falls.",
+        "tips": "The hike is moderate; carry a reusable water bottle and wear good hiking shoes.",
+        "coordinates": { "lat": 32.2635, "lon": 77.1994 }
+      },
+      {
+        "id": "mnl-mall-road",
+        "name": "Mall Road & Tibetan Monastery Market",
+        "time_slot": "evening",
+        "duration_hours": 2.0,
+        "cost_inr": 0,
+        "interests": ["shopping", "food", "culture"],
+        "short_desc": "Pedestrianized high street offering Kullu shawls, wooden craft, Tibetan prayer wheels, and momos.",
+        "tips": "Only official government handloom emporiums guarantee pure wool pashmina.",
+        "coordinates": { "lat": 32.2405, "lon": 77.1887 }
+      },
+      {
+        "id": "mnl-naggar-castle",
+        "name": "Naggar Castle & Roerich Art Gallery",
+        "time_slot": "afternoon",
+        "duration_hours": 3.0,
+        "cost_inr": 50,
+        "interests": ["history", "culture", "relaxation"],
+        "short_desc": "500-year-old timber and stone fortress overlooking the Beas river, once seat of the Kullu Rajas.",
+        "tips": "Located 20 km from Manali; peaceful alternative to busy tourist pockets.",
+        "coordinates": { "lat": 32.1187, "lon": 77.1706 }
+      }
+    ]
+  },
+  {
+    "id": "varanasi",
+    "name": "Varanasi",
+    "state": "Uttar Pradesh",
+    "tagline": "One of the world's oldest living cities, sacred ghats, and spiritual rhythm.",
+    "overview": "Set along the banks of the sacred river Ganges, Varanasi offers profound spiritual rituals, sunrise boat rides, winding alleys, classical music, and rich silk handlooms.",
+    "best_seasons": ["October to March"],
+    "ideal_days_min": 2,
+    "ideal_days_max": 4,
+    "coordinates": {
+      "lat": 25.3176,
+      "lon": 82.9739
+    },
+    "typical_daily_costs": {
+      "budget": {
+        "accommodation": 750,
+        "food": 450,
+        "local_transport": 200,
+        "misc": 150
+      },
+      "balanced": {
+        "accommodation": 2000,
+        "food": 950,
+        "local_transport": 550,
+        "misc": 300
+      },
+      "comfort": {
+        "accommodation": 5200,
+        "food": 2100,
+        "local_transport": 1300,
+        "misc": 650
+      }
+    },
+    "transport_baseline": {
+      "public_train": 800,
+      "cab_rental": 2200,
+      "flight_local": 4400
+    },
+    "activities": [
+      {
+        "id": "vns-sunrise-boat",
+        "name": "Sunrise Ganga Boat Ride (Assi to Manikarnika)",
+        "time_slot": "morning",
+        "duration_hours": 2.0,
+        "cost_inr": 300,
+        "interests": ["culture", "history", "nature"],
+        "short_desc": "Rowing boat at dawn witnessing morning prayers, bathing rituals, and historic stone ghats.",
+        "tips": "Start at 5:30 AM to catch the quiet dawn light and chanting over the river.",
+        "coordinates": { "lat": 25.2891, "lon": 83.0076 }
+      },
+      {
+        "id": "vns-kashi-vishwanath",
+        "name": "Kashi Vishwanath Temple & Corridor Walk",
+        "time_slot": "morning",
+        "duration_hours": 2.5,
+        "cost_inr": 0,
+        "interests": ["culture", "history"],
+        "short_desc": "Revered Jyotirlinga shrine with the modern pedestrian corridor connecting directly to the Ganga.",
+        "tips": "Electronic devices and bags must be deposited in official lockers before entry.",
+        "coordinates": { "lat": 25.3109, "lon": 83.0107 }
+      },
+      {
+        "id": "vns-sarnath",
+        "name": "Sarnath Buddhist Stupa & Archeological Museum",
+        "time_slot": "afternoon",
+        "duration_hours": 3.0,
+        "cost_inr": 50,
+        "interests": ["history", "culture", "relaxation"],
+        "short_desc": "Historic deer park where Gautama Buddha taught his first sermon; site of the Ashoka Pillar.",
+        "tips": "Museum is closed on Fridays; displays the original Ashoka Lion Capital.",
+        "coordinates": { "lat": 25.3811, "lon": 83.0214 }
+      },
+      {
+        "id": "vns-ganga-aarti",
+        "name": "Dashashwamedh Ghat Evening Ganga Aarti",
+        "time_slot": "evening",
+        "duration_hours": 2.0,
+        "cost_inr": 0,
+        "interests": ["culture", "history", "relaxation"],
+        "short_desc": "Synchronized ritual of brass lamps, conch shells, and devotional hymns by young priests.",
+        "tips": "Secure steps seat by 6:00 PM or view from an anchored wooden boat.",
+        "coordinates": { "lat": 25.3076, "lon": 83.0104 }
+      },
+      {
+        "id": "vns-street-food",
+        "name": "Thatheri Bazar Street Food & Lassi Trail",
+        "time_slot": "afternoon",
+        "duration_hours": 2.0,
+        "cost_inr": 150,
+        "interests": ["food", "culture"],
+        "short_desc": "Taste authentic Banarasi kachori-sabzi, tamatar chaat, and creamy clay-cup Blue Lassi.",
+        "tips": "Tamatar chaat at Kashi Chaat Bhandar is freshly cooked every evening after 4:30 PM.",
+        "coordinates": { "lat": 25.3122, "lon": 83.0085 }
+      },
+      {
+        "id": "vns-silk-weaving",
+        "name": "Banarasi Silk Weavers Workshop Visit",
+        "time_slot": "evening",
+        "duration_hours": 2.0,
+        "cost_inr": 0,
+        "interests": ["shopping", "culture", "history"],
+        "short_desc": "Watch master handloom weavers craft pure zari brocade sarees and wall tapestries.",
+        "tips": "Support authentic weaver cooperatives in the Madanpura or Peeli Kothi quarters.",
+        "coordinates": { "lat": 25.3168, "lon": 82.9989 }
+      }
+    ]
+  },
+  {
+    "id": "pondicherry",
+    "name": "Pondicherry",
+    "state": "Puducherry",
+    "tagline": "French colonial quarters, tranquil sea promenade, and spiritual retreats.",
+    "overview": "Pondicherry combines French boulevard symmetry, bright bougainvillea-framed villas, Tamil heritage, artisanal bakeries, and experimental community living at Auroville.",
+    "best_seasons": ["October to March"],
+    "ideal_days_min": 2,
+    "ideal_days_max": 4,
+    "coordinates": {
+      "lat": 11.9416,
+      "lon": 79.8083
+    },
+    "typical_daily_costs": {
+      "budget": {
+        "accommodation": 900,
+        "food": 550,
+        "local_transport": 250,
+        "misc": 150
+      },
+      "balanced": {
+        "accommodation": 2400,
+        "food": 1100,
+        "local_transport": 600,
+        "misc": 350
+      },
+      "comfort": {
+        "accommodation": 5500,
+        "food": 2300,
+        "local_transport": 1400,
+        "misc": 700
+      }
+    },
+    "transport_baseline": {
+      "public_train": 800,
+      "cab_rental": 2400,
+      "flight_local": 4600
+    },
+    "activities": [
+      {
+        "id": "pdy-promenade",
+        "name": "Rock Beach & Promenade Morning Cycle Ride",
+        "time_slot": "morning",
+        "duration_hours": 2.0,
+        "cost_inr": 100,
+        "interests": ["nature", "relaxation", "adventure"],
+        "short_desc": "Traffic-free morning coastal boulevard with refreshing sea breezes and French memorial statues.",
+        "tips": "Vehicle entry is restricted during morning hours, making it perfect for cycling or walking.",
+        "coordinates": { "lat": 11.9338, "lon": 79.8358 }
+      },
+      {
+        "id": "pdy-auroville",
+        "name": "Auroville & Matrimandir Viewing Point",
+        "time_slot": "morning",
+        "duration_hours": 3.5,
+        "cost_inr": 0,
+        "interests": ["culture", "nature", "relaxation"],
+        "short_desc": "International township dedicated to human unity; walk through shade trees to the golden geodesic sphere.",
+        "tips": "Visitor center passes are free; inner chamber meditation requires booking days ahead.",
+        "coordinates": { "lat": 12.0070, "lon": 79.8106 }
+      },
+      {
+        "id": "pdy-white-town",
+        "name": "White Town Heritage Walk & French Cafes",
+        "time_slot": "afternoon",
+        "duration_hours": 2.5,
+        "cost_inr": 0,
+        "interests": ["history", "culture", "food"],
+        "short_desc": "Cobbled streets lined with colonial mansions, boutique shops, and authentic French creperies.",
+        "tips": "Stop for warm croissants and espresso at Baker Street or Cafe des Arts.",
+        "coordinates": { "lat": 11.9317, "lon": 79.8339 }
+      },
+      {
+        "id": "pdy-ashram",
+        "name": "Sri Aurobindo Ashram",
+        "time_slot": "afternoon",
+        "duration_hours": 1.5,
+        "cost_inr": 0,
+        "interests": ["culture", "relaxation"],
+        "short_desc": "Serene spiritual haven and library centered around the marble Samadhi surrounded by flowers.",
+        "tips": "Maintains deep silence; footwear must be left at the designated entrance stand.",
+        "coordinates": { "lat": 11.9366, "lon": 79.8344 }
+      },
+      {
+        "id": "pdy-paradise-beach",
+        "name": "Chunnambar Boat House to Paradise Beach",
+        "time_slot": "afternoon",
+        "duration_hours": 3.0,
+        "cost_inr": 350,
+        "interests": ["nature", "adventure", "relaxation"],
+        "short_desc": "Backwater ferry ride through mangrove fringes leading to an isolated golden sand spit.",
+        "tips": "Last return ferry is around 5:00 PM; wear sun protection.",
+        "coordinates": { "lat": 11.8847, "lon": 79.8080 }
+      },
+      {
+        "id": "pdy-gougebert",
+        "name": "Goubert Market & Tamil Quarter Crafts",
+        "time_slot": "evening",
+        "duration_hours": 2.0,
+        "cost_inr": 0,
+        "interests": ["shopping", "food", "culture"],
+        "short_desc": "Vibrant local market for fresh spices, jasmine garlands, handmade paper, and ceramic goods.",
+        "tips": "Visit Sri Aurobindo Handmade Paper Factory nearby for eco-friendly stationery.",
+        "coordinates": { "lat": 11.9340, "lon": 79.8270 }
+      }
+    ]
+  },
+  {
+    "id": "udaipur",
+    "name": "Udaipur",
+    "state": "Rajasthan",
+    "tagline": "The City of Lakes, romantic ghats, and Mewar palaces.",
+    "overview": "Surrounded by the Aravalli hills, Udaipur is celebrated for Lake Pichola, intricate marble palaces, heritage rooftop dining, and folk music traditions.",
+    "best_seasons": ["October to March"],
+    "ideal_days_min": 2,
+    "ideal_days_max": 4,
+    "coordinates": {
+      "lat": 24.5854,
+      "lon": 73.7125
+    },
+    "typical_daily_costs": {
+      "budget": {
+        "accommodation": 900,
+        "food": 550,
+        "local_transport": 250,
+        "misc": 150
+      },
+      "balanced": {
+        "accommodation": 2500,
+        "food": 1100,
+        "local_transport": 650,
+        "misc": 350
+      },
+      "comfort": {
+        "accommodation": 6000,
+        "food": 2400,
+        "local_transport": 1400,
+        "misc": 750
+      }
+    },
+    "transport_baseline": {
+      "public_train": 900,
+      "cab_rental": 2500,
+      "flight_local": 4600
+    },
+    "activities": [
+      {
+        "id": "udr-city-palace",
+        "name": "Udaipur City Palace Complex",
+        "time_slot": "morning",
+        "duration_hours": 3.0,
+        "cost_inr": 300,
+        "interests": ["history", "culture"],
+        "short_desc": "Massive granite and marble palace overlooking Lake Pichola with mirror-inlaid courtyards.",
+        "tips": "Start early to avoid mid-day queues in the narrow corridors.",
+        "coordinates": { "lat": 24.5764, "lon": 73.6835 }
+      },
+      {
+        "id": "udr-pichola-boat",
+        "name": "Lake Pichola Sunset Boat Cruise & Jagmandir",
+        "time_slot": "evening",
+        "duration_hours": 2.0,
+        "cost_inr": 450,
+        "interests": ["nature", "relaxation", "history"],
+        "short_desc": "Gliding across calm waters as the sun illuminates the white marble Lake Palace and ghats.",
+        "tips": "Sunset departure around 4:45 PM offers the most dramatic golden hour reflections.",
+        "coordinates": { "lat": 24.5760, "lon": 73.6790 }
+      },
+      {
+        "id": "udr-saheliyon",
+        "name": "Saheliyon-ki-Bari (Courtyard of Maidens)",
+        "time_slot": "afternoon",
+        "duration_hours": 1.5,
+        "cost_inr": 50,
+        "interests": ["nature", "history", "relaxation"],
+        "short_desc": "Lush royal gardens featuring marble elephants, lotus pools, and gravity-fed natural fountains.",
+        "tips": "A peaceful shady oasis during warm afternoons.",
+        "coordinates": { "lat": 24.6014, "lon": 73.6872 }
+      },
+      {
+        "id": "udr-bagore",
+        "name": "Bagore Ki Haveli Dharohar Folk Dance Show",
+        "time_slot": "evening",
+        "duration_hours": 2.0,
+        "cost_inr": 100,
+        "interests": ["culture", "history"],
+        "short_desc": "High-energy Rajasthani folk performance featuring fire dancers, puppets, and pot-balancing.",
+        "tips": "Show starts at 7:00 PM; ticket counter opens at 6:15 PM and fills quickly.",
+        "coordinates": { "lat": 24.5794, "lon": 73.6806 }
+      },
+      {
+        "id": "udr-sajjangarh",
+        "name": "Monsoon Palace (Sajjangarh) Hilltop",
+        "time_slot": "afternoon",
+        "duration_hours": 2.5,
+        "cost_inr": 120,
+        "interests": ["nature", "adventure", "history"],
+        "short_desc": "High hilltop fort overlooking the entire lake basin and surrounding wildlife sanctuary.",
+        "tips": "Shared electric shuttles operate from the sanctuary gate to the fort peak.",
+        "coordinates": { "lat": 24.5898, "lon": 73.6369 }
+      },
+      {
+        "id": "udr-jagdish-market",
+        "name": "Jagdish Temple & Old City Bazaar Trail",
+        "time_slot": "morning",
+        "duration_hours": 2.0,
+        "cost_inr": 0,
+        "interests": ["culture", "shopping", "history"],
+        "short_desc": "1651 Indo-Aryan temple with sculpted pillars, leading to silver jewelers and miniature painting artists.",
+        "tips": "Local miniature painters often demonstrate squirrel-hair brush techniques willingly.",
+        "coordinates": { "lat": 24.5798, "lon": 73.6839 }
+      }
+    ]
+  },
+  {
+    "id": "rishikesh",
+    "name": "Rishikesh",
+    "state": "Uttarakhand",
+    "tagline": "Yoga capital of the world, Himalayan foothills, and river rapids.",
+    "overview": "Where the emerald Ganga emerges from the Himalayas, Rishikesh draws rafters, yoga practitioners, backpackers, and seekers of mountain peace.",
+    "best_seasons": ["September to May"],
+    "ideal_days_min": 2,
+    "ideal_days_max": 5,
+    "coordinates": {
+      "lat": 30.0869,
+      "lon": 78.2676
+    },
+    "typical_daily_costs": {
+      "budget": {
+        "accommodation": 750,
+        "food": 450,
+        "local_transport": 200,
+        "misc": 150
+      },
+      "balanced": {
+        "accommodation": 2100,
+        "food": 950,
+        "local_transport": 550,
+        "misc": 300
+      },
+      "comfort": {
+        "accommodation": 5200,
+        "food": 2100,
+        "local_transport": 1300,
+        "misc": 650
+      }
+    },
+    "transport_baseline": {
+      "public_train": 750,
+      "cab_rental": 2200,
+      "flight_local": 4200
+    },
+    "activities": [
+      {
+        "id": "rsh-rafting",
+        "name": "Ganga White Water Rafting (Shivpuri to NIM Beach)",
+        "time_slot": "morning",
+        "duration_hours": 3.5,
+        "cost_inr": 800,
+        "interests": ["adventure", "nature"],
+        "short_desc": "Exhilarating 16 km river run tackling Grade III rapids including Roller Coaster and Golf Course.",
+        "tips": "Always book with government-licensed operators; wetsuits and life vests are mandatory.",
+        "coordinates": { "lat": 30.1341, "lon": 78.3887 }
+      },
+      {
+        "id": "rsh-beatles-ashram",
+        "name": "The Beatles Ashram (Chaurasi Kutia)",
+        "time_slot": "afternoon",
+        "duration_hours": 2.5,
+        "cost_inr": 150,
+        "interests": ["history", "culture", "nature", "relaxation"],
+        "short_desc": "Forest retreat where the Beatles stayed in 1968; features stone meditation domes and mural art.",
+        "tips": "Located inside Rajaji Tiger Reserve boundary; peaceful forest walks surrounded by birds.",
+        "coordinates": { "lat": 30.1130, "lon": 78.3150 }
+      },
+      {
+        "id": "rsh-parmarth-aarti",
+        "name": "Parmarth Niketan Ganga Aarti & Kirtan",
+        "time_slot": "evening",
+        "duration_hours": 1.5,
+        "cost_inr": 0,
+        "interests": ["culture", "relaxation"],
+        "short_desc": "Uplifting sunset ceremony with Vedic chants, music, and floating diya offerings on the river.",
+        "tips": "Arrive around 5:30 PM to sit near the Shiva statue on the river steps.",
+        "coordinates": { "lat": 30.1200, "lon": 78.3120 }
+      },
+      {
+        "id": "rsh-neer-waterfall",
+        "name": "Neer Garh Waterfall Hike",
+        "time_slot": "morning",
+        "duration_hours": 3.0,
+        "cost_inr": 50,
+        "interests": ["nature", "adventure", "relaxation"],
+        "short_desc": "Tiered natural waterfall cascade with cool plunge pools tucked behind the mountain road.",
+        "tips": "The upper third pool has fewer visitors and crystal clear fresh spring water.",
+        "coordinates": { "lat": 30.1378, "lon": 78.3308 }
+      },
+      {
+        "id": "rsh-tapo-cafes",
+        "name": "Tapovan Organic Cafes & Yoga Session",
+        "time_slot": "afternoon",
+        "duration_hours": 2.5,
+        "cost_inr": 300,
+        "interests": ["food", "relaxation", "culture"],
+        "short_desc": "Drop-in Hatha yoga class followed by wholesome smoothie bowls and herbal teas overlooking the valley.",
+        "tips": "Many studios welcome casual walk-in students without prior registration.",
+        "coordinates": { "lat": 30.1284, "lon": 78.3182 }
+      },
+      {
+        "id": "rsh-kunjapuri-sunrise",
+        "name": "Kunjapuri Devi Sunrise Himalayan View",
+        "time_slot": "morning",
+        "duration_hours": 3.0,
+        "cost_inr": 0,
+        "interests": ["nature", "adventure", "relaxation"],
+        "short_desc": "Peak shrine at 1,665 meters with panoramic sunrise views over snow-capped Gangotri peaks.",
+        "tips": "Depart town at 4:30 AM; you can hike down through village trails back to Tapovan.",
+        "coordinates": { "lat": 30.1652, "lon": 78.3491 }
+      }
+    ]
+  }
+]

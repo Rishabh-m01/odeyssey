@@ -1,0 +1,325 @@
+{% extends "base.html" %}
+
+{% block title %}Trip Planner — ODEYSSEY{% endblock %}
+
+{% block content %}
+<div class="planner-page container">
+  <!-- Page Header -->
+  <div class="planner-header">
+    <span class="hero-badge">Step 1: Define Parameters &bull; Step 2: Explore & Refine</span>
+    <h1 class="page-title">Trip Planner</h1>
+    <p class="page-subtitle">
+      Specify your destination, dates, budget, and travel preferences. ODEYSSEY computes a paced schedule 
+      and transparent INR cost breakdown.
+    </p>
+  </div>
+
+  <div class="planner-layout">
+    <!-- LEFT / TOP: Form Panel -->
+    <aside class="planner-sidebar" id="formPanel">
+      <div class="planner-form-card">
+        <div class="form-card-header">
+          <h2 class="form-card-title">Trip Preferences</h2>
+          <button type="button" class="btn-text-action" id="resetFormBtn">Reset to Defaults</button>
+        </div>
+
+        <form id="tripPlannerForm" novalidate>
+          <!-- Destination Field -->
+          <div class="form-group" id="group-destination">
+            <label for="destination" class="form-label">
+              Destination City or Region <span class="required">*</span>
+            </label>
+            <div class="input-with-icon">
+              <svg class="field-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <input 
+                type="text" 
+                id="destination" 
+                name="destination" 
+                list="destinationOptions" 
+                placeholder="e.g. Jaipur, Goa, Munnar, Manali" 
+                class="form-input" 
+                value="{{ prefill_destination or 'Jaipur' }}"
+                required
+              >
+              <datalist id="destinationOptions">
+                {% for d in destinations %}
+                <option value="{{ d.name }}">{{ d.state }}</option>
+                {% endfor %}
+              </datalist>
+            </div>
+            <div class="field-error" id="error-destination"></div>
+            <p class="field-help">Choose from our curated catalog or type any city name.</p>
+          </div>
+
+          <!-- Date & Duration Row -->
+          <div class="form-row">
+            <div class="form-group form-col" id="group-start_date">
+              <label for="startDate" class="form-label">
+                Start Date <span class="required">*</span>
+              </label>
+              <input 
+                type="date" 
+                id="startDate" 
+                name="start_date" 
+                class="form-input" 
+                required
+              >
+              <div class="field-error" id="error-start_date"></div>
+            </div>
+
+            <div class="form-group form-col" id="group-days">
+              <label for="days" class="form-label">
+                Duration (Days) <span class="required">*</span>
+              </label>
+              <div class="counter-input">
+                <button type="button" class="counter-btn" id="daysDec" aria-label="Decrease days">-</button>
+                <input 
+                  type="number" 
+                  id="days" 
+                  name="days" 
+                  min="1" 
+                  max="14" 
+                  value="3" 
+                  class="form-input counter-val" 
+                  required
+                >
+                <button type="button" class="counter-btn" id="daysInc" aria-label="Increase days">+</button>
+              </div>
+              <div class="field-error" id="error-days"></div>
+            </div>
+          </div>
+
+          <!-- Quick Duration Presets -->
+          <div class="preset-pills-row">
+            <span class="preset-label">Presets:</span>
+            <button type="button" class="preset-pill" data-target="days" data-val="2">2 Days (Weekend)</button>
+            <button type="button" class="preset-pill active" data-target="days" data-val="3">3 Days (Classic)</button>
+            <button type="button" class="preset-pill" data-target="days" data-val="5">5 Days</button>
+            <button type="button" class="preset-pill" data-target="days" data-val="7">7 Days (Full Week)</button>
+          </div>
+
+          <!-- Travelers & Budget Row -->
+          <div class="form-row">
+            <div class="form-group form-col" id="group-travelers">
+              <label for="travelers" class="form-label">
+                Travelers <span class="required">*</span>
+              </label>
+              <div class="counter-input">
+                <button type="button" class="counter-btn" id="travelersDec" aria-label="Decrease travelers">-</button>
+                <input 
+                  type="number" 
+                  id="travelers" 
+                  name="travelers" 
+                  min="1" 
+                  max="20" 
+                  value="2" 
+                  class="form-input counter-val" 
+                  required
+                >
+                <button type="button" class="counter-btn" id="travelersInc" aria-label="Increase travelers">+</button>
+              </div>
+              <div class="field-error" id="error-travelers"></div>
+            </div>
+
+            <div class="form-group form-col" id="group-budget">
+              <label for="budget" class="form-label">
+                Total Budget (INR ₹) <span class="required">*</span>
+              </label>
+              <div class="input-with-icon">
+                <span class="field-prefix">₹</span>
+                <input 
+                  type="number" 
+                  id="budget" 
+                  name="budget" 
+                  min="1000" 
+                  step="500" 
+                  value="25000" 
+                  placeholder="25000" 
+                  class="form-input" 
+                  required
+                >
+              </div>
+              <div class="field-error" id="error-budget"></div>
+            </div>
+          </div>
+
+          <!-- Quick Budget Presets -->
+          <div class="preset-pills-row">
+            <span class="preset-label">Presets:</span>
+            <button type="button" class="preset-pill" data-target="budget" data-val="15000">₹15,000</button>
+            <button type="button" class="preset-pill active" data-target="budget" data-val="25000">₹25,000</button>
+            <button type="button" class="preset-pill" data-target="budget" data-val="40000">₹40,000</button>
+            <button type="button" class="preset-pill" data-target="budget" data-val="70000">₹70,000</button>
+          </div>
+
+          <!-- Travel Style Selection -->
+          <div class="form-group" id="group-travel_style">
+            <label class="form-label">Travel Style</label>
+            <div class="style-cards-grid">
+              <label class="style-card">
+                <input type="radio" name="travel_style" value="budget">
+                <div class="style-card-body">
+                  <span class="style-name">Budget</span>
+                  <span class="style-desc">Hostels, local transit & street food</span>
+                </div>
+              </label>
+
+              <label class="style-card active">
+                <input type="radio" name="travel_style" value="balanced" checked>
+                <div class="style-card-body">
+                  <span class="style-name">Balanced</span>
+                  <span class="style-desc">Comfortable 3-star hotel & autos/cabs</span>
+                </div>
+              </label>
+
+              <label class="style-card">
+                <input type="radio" name="travel_style" value="comfort">
+                <div class="style-card-body">
+                  <span class="style-name">Comfort</span>
+                  <span class="style-desc">Resorts, private car hire & fine dining</span>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Interests Selection -->
+          <div class="form-group" id="group-interests">
+            <label class="form-label">
+              Interests <span class="sub-label">(Select one or more)</span>
+            </label>
+            <div class="interests-pills-grid">
+              <label class="interest-pill active">
+                <input type="checkbox" name="interests" value="nature">
+                <span>🍃 Nature</span>
+              </label>
+              <label class="interest-pill active">
+                <input type="checkbox" name="interests" value="history" checked>
+                <span>🏛️ History</span>
+              </label>
+              <label class="interest-pill active">
+                <input type="checkbox" name="interests" value="food" checked>
+                <span>🍲 Food</span>
+              </label>
+              <label class="interest-pill">
+                <input type="checkbox" name="interests" value="adventure">
+                <span>🧗 Adventure</span>
+              </label>
+              <label class="interest-pill active">
+                <input type="checkbox" name="interests" value="culture" checked>
+                <span>🎭 Culture</span>
+              </label>
+              <label class="interest-pill">
+                <input type="checkbox" name="interests" value="shopping">
+                <span>🛍️ Shopping</span>
+              </label>
+              <label class="interest-pill">
+                <input type="checkbox" name="interests" value="relaxation">
+                <span>☕ Relaxation</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Optional Preferences Accordion -->
+          <div class="advanced-section">
+            <button type="button" class="advanced-toggle" id="toggleAdvancedBtn">
+              <span>Optional Stay & Transport Preferences</span>
+              <svg class="chevron-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+
+            <div class="advanced-content" id="advancedContent" style="display:none;">
+              <div class="form-group">
+                <label for="accommodationPref" class="form-label">Accommodation Preference</label>
+                <select id="accommodationPref" name="accommodation_pref" class="form-select">
+                  <option value="">Default for selected style</option>
+                  <option value="hostel_homestay">Hostel / Homestay / Guesthouse</option>
+                  <option value="standard_hotel">Standard 3-Star Hotel</option>
+                  <option value="boutique_resort">Boutique Heritage Resort</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="transportPref" class="form-label">Transit to Destination</label>
+                <select id="transportPref" name="transport_pref" class="form-select">
+                  <option value="">Default (Train / Intercity Bus)</option>
+                  <option value="public_train">Train / Express Sleeper (Economical)</option>
+                  <option value="cab_rental">Outstation Private Cab / Car</option>
+                  <option value="flight_local">Domestic Flight + Local Airport Transfer</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hidden seed for regeneration -->
+          <input type="hidden" id="planSeed" name="seed" value="0">
+
+          <!-- Submit Button -->
+          <button type="submit" class="btn btn-primary btn-block btn-generate" id="generatePlanBtn">
+            <span class="btn-text">Generate Itinerary</span>
+            <span class="btn-spinner" style="display:none;"></span>
+          </button>
+        </form>
+      </div>
+    </aside>
+
+    <!-- RIGHT / BOTTOM: Output Container -->
+    <section class="planner-results" id="resultsContainer">
+      <!-- Initial Placeholder State -->
+      <div class="empty-state-card" id="emptyStateCard">
+        <div class="empty-icon-wrap">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#87947A" stroke-width="1.75">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polygon points="12 8 8 12 12 16 12 8"></polygon>
+            <line x1="12" y1="16" x2="16" y2="12"></line>
+          </svg>
+        </div>
+        <h3 class="empty-title">Ready when you are</h3>
+        <p class="empty-text">
+          Fill in your trip details on the left and click <strong>Generate Itinerary</strong>.
+          ODEYSSEY will produce an interest-ranked, day-by-day plan with real weather forecasts and a verifiable INR budget breakdown.
+        </p>
+      </div>
+
+      <!-- Loading State (hidden initially) -->
+      <div class="loading-state-card" id="loadingStateCard" style="display:none;">
+        <div class="spinner-large"></div>
+        <h3 class="loading-title">Structuring your itinerary...</h3>
+        <p class="loading-text">
+          Evaluating activity opening times, calculating realistic travel buffers, and querying Open-Meteo weather data.
+        </p>
+      </div>
+
+      <!-- Live Generated Content Container (populated by JavaScript) -->
+      <div id="itineraryView" style="display:none;">
+        <!-- Filled dynamically by renderItinerary() -->
+      </div>
+    </section>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  // Pre-set today's date + 7 days as default start date
+  document.addEventListener('DOMContentLoaded', function() {
+    const today = new Date();
+    const defaultDate = new Date();
+    defaultDate.setDate(today.getDate() + 7);
+    
+    const yyyy = defaultDate.getFullYear();
+    const mm = String(defaultDate.getMonth() + 1).padStart(2, '0');
+    const dd = String(defaultDate.getDate()).padStart(2, '0');
+    const formatted = `${yyyy}-${mm}-${dd}`;
+    
+    const startDateInput = document.getElementById('startDate');
+    if (startDateInput && !startDateInput.value) {
+      startDateInput.value = formatted;
+      startDateInput.min = new Date().toISOString().split('T')[0];
+    }
+  });
+</script>
+{% endblock %}
