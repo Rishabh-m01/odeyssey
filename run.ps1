@@ -14,3 +14,4 @@ if (Test-Path $pythonExe) {
 } else {
     python "app.py"
 }
+

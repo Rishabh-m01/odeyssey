@@ -234,3 +234,4 @@ tests/test_planner.py::test_weather_fallback PASSED
 
 Developed for educational demonstration as a college mini-project.
 OpenStreetMap &copy; OpenStreetMap contributors. Weather by Open-Meteo.com.
+

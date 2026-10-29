@@ -12,3 +12,4 @@ if (Test-Path $pytestExe) {
 } else {
     pytest -v
 }
+

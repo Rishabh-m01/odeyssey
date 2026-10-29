@@ -10,3 +10,4 @@ if exist ".venv\Scripts\pytest.exe" (
     pytest -v
 )
 pause
+
